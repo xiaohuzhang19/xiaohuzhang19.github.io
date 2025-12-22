@@ -18,9 +18,9 @@ dark-theme: auto
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume-url: https://www.linkedin.com/in/xiaohu-zhang-354570103/
 
-url: https://sergiokopplin.github.io/indigo
+url: https://xiaohuzhang19.github.io/
 # your url: https://USERNAME.github.io
 
 permalink: /:title/
