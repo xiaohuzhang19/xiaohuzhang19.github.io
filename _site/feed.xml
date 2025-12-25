@@ -1,1 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-21T20:55:09-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Xiaohu Zhang</title><subtitle>A blog about technology and stuff related</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-25T08:31:05-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Xiaohu Zhang</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Black Litterman Model 101</title><link href="http://localhost:4000/markdown-common-elements/" rel="alternate" type="text/html" title="Black Litterman Model 101" /><published>2025-12-24T22:44:00-08:00</published><updated>2025-12-24T22:44:00-08:00</updated><id>http://localhost:4000/markdown-common-elements</id><content type="html" xml:base="http://localhost:4000/markdown-common-elements/"><![CDATA[<h2 id="basic-formatting">Basic formatting</h2>
+
+<p>This note <strong>demonstrates</strong> some of what [Markdown][1] is <em>capable of doing</em>.</p>
+
+<p>And that’s how to do it.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">This note **demonstrates** some of what [Markdown][some/link] is *capable of doing*.</code></pre></figure>
+
+<hr />
+
+<h2 id="headings">Headings</h2>
+
+<p>There are six levels of headings. They correspond with the six levels of HTML headings. You’ve probably noticed them already in the page. Each level down uses one more hash character. But we are using just 4 of them.</p>
+
+<h1 id="headings-can-be-small">Headings can be small</h1>
+
+<h2 id="headings-can-be-small-1">Headings can be small</h2>
+
+<h3 id="headings-can-be-small-2">Headings can be small</h3>
+
+<h4 id="headings-can-be-small-3">Headings can be small</h4>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw"># Heading
+## Heading
+### Heading
+#### Heading</code></pre></figure>
+
+<hr />
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="ordered-list">Ordered list</h3>
+
+<ol>
+  <li>Item 1</li>
+  <li>A second item</li>
+  <li>Number 3</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">1. Item 1
+2. A second item
+3. Number 3</code></pre></figure>
+
+<h3 id="unordered-list">Unordered list</h3>
+
+<ul>
+  <li>An item</li>
+  <li>Another item</li>
+  <li>Yet another item</li>
+  <li>And there’s more…</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">* An item
+* Another item
+* Yet another item
+* And there's more...</code></pre></figure>
+
+<hr />
+
+<h2 id="paragraph-modifiers">Paragraph modifiers</h2>
+
+<h3 id="quote">Quote</h3>
+
+<blockquote>
+  <p>Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">&gt; Here is a quote. What this is should be self explanatory.</code></pre></figure>
+
+<hr />
+
+<h2 id="urls">URLs</h2>
+
+<p>URLs can be made in a handful of ways:</p>
+
+<ul>
+  <li>A named link to [Mark It Down][3].</li>
+  <li>Another named link to <a href="https://google.com/">Mark It Down</a></li>
+  <li>Sometimes you just want a URL like <a href="https://google.com/">https://google.com/</a>.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">* A named link to [MarkItDown][3].
+* Another named link to [MarkItDown](https://google.com/)
+* Sometimes you just want a URL like &lt;https://google.com/&gt;.</code></pre></figure>
+
+<hr />
+
+<h2 id="horizontal-rule">Horizontal rule</h2>
+
+<p>A horizontal rule is a line that goes across the middle of the page.
+It’s sometimes handy for breaking things up.</p>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">---</code></pre></figure>
+
+<hr />
+
+<h2 id="images">Images</h2>
+
+<p>Markdown can also contain images. I’ll need to add something here sometime.</p>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]</code></pre></figure>
+
+<p>![Markdowm Image][5]</p>
+
+<p><em>Figure Caption</em>?</p>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]
+&lt;figcaption class="caption"&gt;Photo by John Doe&lt;/figcaption&gt;</code></pre></figure>
+
+<p>![Markdowm Image][5]</p>
+<figcaption class="caption">Photo by John Doe</figcaption>
+
+<p><em>Bigger Images</em>?</p>
+
+<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]{: class="bigger-image" }</code></pre></figure>
+
+<p>![Markdowm Image][5]{: class=”bigger-image” }</p>
+
+<hr />
+
+<h2 id="code">Code</h2>]]></content><author><name>Xiaohu Zhang</name></author><category term="blog" /><category term="markdown" /><category term="elements" /><summary type="html"><![CDATA[Unwrap the blackbox of Black Litterman Model]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/black.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/black.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

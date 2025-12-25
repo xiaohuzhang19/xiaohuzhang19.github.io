@@ -1,6 +1,6 @@
 # main text of home
 title: Xiaohu Zhang
-bio: A researcher knows majority of models used in the bank and AI.
+bio: A researcher with cross-domain expertise in banking models, including quantitative finance and AI-driven approaches.
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -37,14 +37,14 @@ disqus:
 #facebook: myfacebook
 #twitter: mytwitter
 #instagram: myinstagram
-linkedin: mylinkedin
-github: mygithub
+linkedin: https://www.linkedin.com/in/xiaohu-zhang-354570103/
+github: https://xiaohuzhang19.github.io/
 email: xiaohu.zhang19@gmail.com
-
+Google Scholar: https://scholar.google.com/citations?user=pReowzEAAAAJ&hl=en
 authors:
   xiaohuzhang:
     name: Xiaohu Zhang
-    bio: A researcher knows majority of models used in the bank and AI.
+    bio: A researcher with cross-domain expertise in banking models, including quantitative finance and AI-driven approaches.
     external-image: false
     picture: assets/images/profile.jpg
 

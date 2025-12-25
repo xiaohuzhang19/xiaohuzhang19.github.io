@@ -4,42 +4,63 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p> <strong>Background:</strong> Experienced quantitative finance professional with over 10 years of experience in capital markets, treasury, liquidity, and securitization product modeling. Currently working at Capital One in Virginia as a Model Risk Management professional, specializing in agency MBS prepayment models and machine learning–based models.</p>
+
+<p> <strong>Education:</strong> Master’s degrees in Computer Science and Quantitative Finance from Georgia Institute of Technology and Fordham University. Frequent contributor to academic research on machine learning applications in quantitative finance.</p>
+
+<h2>Research Interests</h2>
+
+<ul class="skill-list">
+	<li>Quant Finance: Interest Rate Derivatives, Term Structure Modeling, MBS Prepayment</li>
+	<li>Portfolio Optimization, Derivative Pricing</li>
+  	<li>Graph Theory, Bayesian Theory</li>
+	<li> Natural Language Processing and LLM </li>
+</ul>
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Tests)</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
-	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
+	<li>Python, C++</li>
+    <li>R, Matlab, SAS</li>
+	<li>Snowflake, SQL, Databricks</li>
+	<li>TensorFlow, PyTorch</li>
+	<li>PySpark, Polars, etc</li>
 </ul>
 
-<h2>Projects</h2>
+<h2>Service Provided</h2>
 
+<ul class="service-list">
+  <li><strong>Mentoring and Peer Coaching:</strong> Providing mentorship to undergraduate students since 2023.</li>
+  <li><strong>Academic Research Collaboration:</strong> If you share similar research interests, feel free to connect with me on LinkedIn or contact me via email.</li>
+</ul>
+
+<h2>Papers</h2>
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+  <li>
+    <a href="https://www.researchgate.net/publication/397442345_Systemic_Risk_and_Bank_Networks_The_Use_of_a_Knowledge_Graph_with_Generative_Artificial_Intelligence">
+      Systemic Risk and Bank Networks: The Use of a Knowledge Graph with Generative Artificial Intelligence
+    </a>
+  </li>
+  <li>
+    <a href="https://faculty.fordham.edu/rchen/JFS.pdf">
+      From Liquidity Risk to Systemic Risk: A Knowledge Graph Approach
+    </a>
+  </li>
+  <li>
+    <a href="https://faculty.fordham.edu/rchen/JFDS-Chen.pdf">
+      A Black–Litterman Framework for Asset Allocation
+    </a>
+  </li>
 </ul>
+
+
+<h2>Things I Am Currently Working On</h2>
+
+<ul class="skill-list">
+	<li>Application of the PSO Algorithm in Derivative Pricing</li>
+  		<li>Black-Litterman with Bayesian Theory</li>
+		  <li> Bank's network analysis and Graph Neural Network
+</ul>
+
