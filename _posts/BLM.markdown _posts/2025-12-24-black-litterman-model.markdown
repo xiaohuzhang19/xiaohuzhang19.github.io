@@ -3,7 +3,7 @@ title: "Black Litterman Model 101"
 layout: post
 date: 2025-12-24 22:44
 image: /assets/images/black.jpeg
-headerImage: false
+headerImage: true
 tag:
 - markdown
 - elements
@@ -42,13 +42,14 @@ and we can state that
 $$
 p(B,A)=p(B|A)p(A)
 $$
-set up two side equally, and divided by $p(A)$, we will have equaition (1)
+set up two side equally, and divided by $p(A)$, we will have equation (1)
 
  $p(B)$ is the unconditional (marginal) probability of the event of interest, also known as the *prior* information, is the marginal probability of event happening, not knowing anything beyond the fact W.R.T this event.
 
-We may know some events or research tests i prior to the event B, which is the *posterior* information, can be denoted as $p(B|Tests_i...)$.
+We may know some events or research tests i prior to the event B, which is the *posterior* information, 
+can be denoted as $p(B|Tests_i...)$ .
 
-###### Bring data into Bayesian theorem
+###### Bring data into Bayesian theorem ######
 
 Now, if we bring probability distributions  into the theorem. 
 
@@ -80,7 +81,7 @@ That is,
 
 
 
-## Bayesian Formulation with Financial Interpretation
+## Bayesian Formulation with Financial Interpretation ##
 
 To make the Bayesian formulation more concrete, we can replace the abstract parameter $\theta$ with quantities commonly used in finance.
 
@@ -119,7 +120,7 @@ Bayesian inference is typically carried out in the following steps:
 
 
 
-##### Posterior Distribution via Bayes’ Theorem
+##### Posterior Distribution via Bayes’ Theorem #####
 
 By Bayes’ theorem, the posterior distribution can be written as
 $$
@@ -139,7 +140,7 @@ where:
 
 ------
 
-##### Marginal Likelihood (Evidence)
+##### Marginal Likelihood (Evidence) #####
 
 For a continuous parameter space, the marginal likelihood is given by
 $$
@@ -153,7 +154,7 @@ This quantity ensures that the posterior distribution integrates to one. While i
 
 
 
-### MULTIVARIATE NORMAL Distribution
+### MULTIVARIATE NORMAL Distribution ###
 
 For our study puprose, it is useful to introduce the multivariate normal distribution
 
@@ -172,7 +173,7 @@ where $\mu \in \mathbb{R}^p$ is the mean vector and
 
 Next step is to combine the multivariate normal distribution with the bayesian inference:
 
-## Multivariate Normal Likelihood combine with Bayesian
+## Multivariate Normal Likelihood combine with Bayesian ##
 
 Assume we observe $n$ independent $p$-dimensional vectors
 $$
@@ -189,8 +190,8 @@ where
 - $\Sigma \in \mathbb{R}^{p \times p}$ is the covariance matrix.
 
 ------
-
-### Joint Density (Product Form)
+ 
+### Joint Density (Product Form) ###
 
 The joint density of the data is
 $$
@@ -206,7 +207,7 @@ $$
 
 ------
 
-### Simplified Likelihood
+### Simplified Likelihood ###
 
 This can be rewritten as
 $$
@@ -245,9 +246,9 @@ $$
 \right).
 $$
 
-### BlackLitterman Model
+### BlackLitterman Model ###
 
-### 1. Start from the Return-Generating Process
+### 1. Start from the Return-Generating Process ###
 
 Let $r_t \in \mathbb{R}^n$ denote the vector of asset returns at time $t$:
 $$
@@ -269,7 +270,7 @@ $$
 
 ------
 
-### 2. Why We *Do Not* Use Sample Means in Black–Litterman
+### 2. Why We *Do Not* Use Sample Means in Black–Litterman ###
 
 In classical Bayesian estimation, we would update $\mu$ using the sample mean:
 $$
@@ -289,9 +290,9 @@ Black–Litterman replaces this *historical-data likelihood* with something more
 
 ------
 
-### 3. The Prior: $\pi$ and $\tau\Sigma$
+### 3. The Prior: $\pi$ and $\tau\Sigma$ ###
 
-#### Equilibrium Expected Returns
+#### Equilibrium Expected Returns ####
 
 The vector $\pi$ represents **market-implied equilibrium returns**, typically obtained via reverse optimization:
 $$
@@ -321,7 +322,7 @@ where:
 
 This is the standard quadratic utility / Markowitz problem.
 
-##### 3.2 First-Order Condition
+##### 3.2 First-Order Condition ##### 
 
 Take the derivative with respect to $w$ and set it to zero:
 $$
@@ -339,7 +340,7 @@ $$
 \mu \sim \mathcal{N}(\pi, \tau\Sigma).
 $$
 
-#### Interpretation of $\tau\Sigma$
+#### Interpretation of $\tau\Sigma$ ##### 
 
 - $\Sigma$ captures **return co-movement**,
 - $\tau$ scales **uncertainty in equilibrium returns**.
@@ -348,7 +349,7 @@ Note: $\tau$  is a parameter introduced in the Black Litterman original paper ta
 
 ------
 
-### 4. The Likelihood: $P$ and $Q$ as “Soft Data”
+### 4. The Likelihood: $P$ and $Q$ as “Soft Data” ####
 
 Instead of observing returns directly, BL assumes we observe **linear views** and used that to replace the value in the Bayesian formula:
 $$
@@ -373,7 +374,7 @@ $$
 
 ------
 
-### 5. Posterior: Same Formula, New Meaning
+### 5. Posterior: Same Formula, New Meaning ##### 
 
 Because both the prior and the “data” are Gaussian, the posterior remains Gaussian:
 $$
@@ -394,7 +395,7 @@ P\tau\Sigma P^{\mathsf T}+\Omega
 (Q - P\pi).
 $$
 
-##Summary
+## Summary ## 
 
 **Black–Litterman replaces historical sample means with economically motivated “soft observations” of returns.**
 
