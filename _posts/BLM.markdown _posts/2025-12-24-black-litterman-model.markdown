@@ -186,9 +186,6 @@ $$
 
 where $\bar r$ is the sample mean.
 
-> **Interpretation:**  
-> Classical Bayesian updating shrinks the unknown expected return toward the sample mean, with uncertainty decreasing as more data are observed.
-
 This result will serve as a reference point for understanding Black–Litterman.
 
 ---
@@ -271,7 +268,93 @@ $$
 \mu \sim \mathcal{N}(\pi, \tau\Sigma).
 $$
 
-The scalar $\tau$ reflects confidence in the equilibrium prior: smaller values imply stronger confidence, larger values allow views to play a greater role.
+The scalar $\tau$ reflects confidence in the equilibrium prior: smaller values imply stronger confidence, larger values allow views to play a greater role. However,such parameter is difficult to set in practice.
+
+
+## An Alternative Interpretation: Diffuse Priors and the Role of $\tau$
+
+An alternative way to interpret the Black–Litterman model is to compare it with the use of **diffuse (uninformative) priors** in Bayesian statistics. Diffuse priors are a well-established tool for incorporating **estimation risk** into portfolio allocation problems (see, for example, Rachev et al., 2008).
+
+---
+
+### Jeffreys Prior in Bayesian Mean Estimation
+
+Using **Jeffreys prior** (Jeffreys, 1961) for the mean–variance model of asset returns, it can be shown that the posterior distribution of expected returns has the following form:
+
+$$
+\mu \mid R
+\sim
+\mathcal{N}
+\!\left(
+\bar r,
+\left(1 + \frac{1}{T}\right)\frac{1}{T-1}\Sigma
+\right),
+\tag{A.1}
+$$
+
+where:
+
+- $\bar r$ is the sample mean of returns,
+- $\Sigma$ is the return covariance matrix,
+- $T$ is the number of observations.
+
+Compared with the classical Bayesian result $\Sigma / T$, Jeffreys prior **inflates the posterior variance**, explicitly accounting for estimation uncertainty in the mean.
+
+---
+
+### Connection to Black–Litterman Without Views
+
+Now consider the Black–Litterman model **without subjective views**. In this case, the posterior mean and covariance reduce to:
+
+$$
+\mu_{\text{BL}} = \pi,
+\qquad
+\Sigma_{\text{BL}} = (1 + \tau)\Sigma,
+\tag{A.2}
+$$
+
+where:
+
+- $\pi$ is the market-implied equilibrium return,
+- $\tau \Sigma$ is the prior covariance of expected returns.
+
+This shows that, in the absence of views, Black–Litterman does not attempt to “forecast” returns. Instead, it anchors expected returns at equilibrium while inflating uncertainty to reflect estimation risk—**exactly the same role played by diffuse priors in Bayesian inference**.
+
+---
+
+### Interpreting $\tau$ via Jeffreys Prior
+
+By equating the posterior variance from Jeffreys prior with the Black–Litterman posterior variance, we obtain an explicit mapping between $\tau$ and the effective sample size $T$:
+
+$$
+\tau
+=
+\left(1 + \frac{1}{T}\right)
+\frac{T - 1}{T}
+\frac{1}{N + 2},
+\tag{A.3}
+$$
+
+where $N$ is the number of assets.
+
+This expression provides a **data-driven interpretation of $\tau$**:
+it behaves like an inverse effective sample size, scaled by the cross-sectional dimension of the problem.
+
+---
+
+### Numerical Illustration
+
+For example, suppose we have $N = 4$ assets:
+
+- If $T = 36$ (three years of monthly data), then  
+   $$
+   	au \approx 0.20.
+   $$
+- If $T = 120$ (ten years of monthly data), then  
+   $$
+   	au \approx 0.05.
+   $$
+As the amount of data increases, estimation uncertainty decreases, and the implied value of $\tau$ becomes smaller.
 
 ---
 
@@ -356,3 +439,8 @@ Mathematically, it is nothing more than **Gaussian Bayesian updating**, applied 
 4. **Sayan Mukherjee**  
    *Useful Properties of the Multivariate Normal*  
    [Duke STA 613 Notes](https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf)
+
+
+5. **Uncertainty in the Black–Litterman Model: A Practical Note**  
+   *Weidener Diskussionspapiere*, No. 68.  
+    [BLM Workpaper](https://www.econstor.eu/bitstream/10419/202070/1/1671418840.pdf)
