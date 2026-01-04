@@ -61,6 +61,6 @@ layout: page
 <ul class="skill-list">
 	<li>Application of the PSO Algorithm in Derivative Pricing</li>
   		<li>Black-Litterman with Bayesian Theory</li>
-		  <li> Bank's network analysis and Graph Neural Network
+    	<li>Bank network analysis using Graph Neural Networks</li>
 </ul>
 
