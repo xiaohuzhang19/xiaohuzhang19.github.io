@@ -19,15 +19,17 @@ Two years ago, inspired by recent advances in 401(k) and pension fund investment
 
 Although the problem itself is well known, the mathematical intuition behind the Black–Litterman model—and, more importantly, how to apply it effectively in practice—is rarely explained in a clear and accessible way.
 
-In this blog series, I walk through the Black–Litterman model from first principles, demystify the underlying mathematics, and show how it can be implemented in real-world portfolio construction. The goal is to bridge the gap between theory and practice and provide a practical guide beyond textbook formulas.
+In this post, I walk through the Black–Litterman model **from first principles**, carefully building the logic from Bayesian statistics and multivariate normal theory. The goal is to show that Black–Litterman is not a heuristic or ad-hoc adjustment, but a **direct and natural application of Bayesian updating**.
 
 ---
 
 ## Math Behind the Model
 
+We begin by reviewing the Bayesian machinery that underpins the Black–Litterman framework.
+
 ### 1. A Brief Review of Bayes’ Theorem
 
-We begin with Bayes’ theorem:
+Bayes’ theorem states:
 
 $$
 p(B \mid A) = \frac{p(A \mid B)\, p(B)}{p(A)}.
@@ -41,13 +43,18 @@ $$
 
 Dividing both sides by $p(A)$ yields Bayes’ theorem.
 
-Here, $p(B)$ is the **prior** (marginal) probability of event $B$, while $p(B \mid A)$ is the **posterior** probability after observing event $A$.
+Here:
+
+- $p(B)$ is the **prior** (marginal) probability of event $B$,
+- $p(B \mid A)$ is the **posterior** probability after observing event $A$.
+
+This simple identity is the foundation of Bayesian inference.
 
 ---
 
 ### 2. Bringing Data into Bayes’ Theorem
 
-Bayesian statistics represents uncertainty about model parameters using probability distributions. A prior distribution reflects beliefs before observing data, which are updated using observed data to obtain a posterior distribution.
+In Bayesian statistics, uncertainty about model parameters is represented explicitly using probability distributions. A **prior distribution** encodes beliefs before observing data, and these beliefs are updated using observed data to form a **posterior distribution**.
 
 Bayes’ theorem in distributional form is:
 
@@ -72,7 +79,7 @@ f(\text{data})
 \int f(\text{data} \mid \theta)\, f(\theta)\, d\theta.
 $$
 
-This quantity—called the **marginal likelihood** or **evidence**—normalizes the posterior so it integrates to one.
+This quantity—called the **marginal likelihood** or **evidence**—ensures that the posterior integrates to one.
 
 Since it does not depend on $\theta$, Bayes’ rule is often written in proportional form:
 
@@ -82,11 +89,13 @@ $$
 
 > **Posterior ∝ Likelihood × Prior**
 
+This proportional form highlights the core intuition of Bayesian inference.
+
 ---
 
 ## Bayesian Formulation with Financial Interpretation
 
-To make the framework concrete, replace the abstract parameter $\theta$ with financial quantities:
+To connect Bayesian inference with portfolio theory, we now replace the abstract parameter $\theta$ with financially meaningful quantities:
 
 - $\mu$: unknown expected return  
 - $r$: observed asset returns  
@@ -101,10 +110,10 @@ $$
 
 Where:
 
- - $p(\mu \mid r)$: posterior expected returns  
- - $p(r \mid \mu)$: likelihood  
- - $p(\mu)$: prior  
- - $p(r)$: marginal likelihood  
+- $p(\mu \mid r)$: posterior expected returns  
+- $p(r \mid \mu)$: likelihood  
+- $p(\mu)$: prior  
+- $p(r)$: marginal likelihood  
 
 With:
 
@@ -112,11 +121,13 @@ $$
 p(r) = \int p(r \mid \mu)\, p(\mu)\, d\mu.
 $$
 
+This formulation already hints at the structure that Black–Litterman will later exploit.
+
 ---
 
 ## Multivariate Normal Distribution
 
-For portfolio analysis, the multivariate normal distribution is fundamental.
+For portfolio applications, the multivariate normal distribution plays a central role.
 
 Let $x \in \mathbb{R}^p$:
 
@@ -129,16 +140,18 @@ f(x)
 \right),
 $$
 
-where: 
+where:
 
-- $\mu$: mean vector  
-- $\Sigma$: covariance matrix  
+- $\mu$ is the mean vector,  
+- $\Sigma$ is the covariance matrix.
+
+This distribution underlies both classical mean estimation and the Black–Litterman model.
 
 ---
 
 ## Multivariate Normal Likelihood with Bayesian Updating
 
-Assume observed returns:
+Assume we observe historical returns:
 
 $$
 r_1, \dots, r_n \in \mathbb{R}^p,
@@ -146,7 +159,7 @@ r_1, \dots, r_n \in \mathbb{R}^p,
 r_i \mid \theta, \Sigma \sim \mathcal{N}(\theta, \Sigma).
 $$
 
-### Likelihood
+The joint likelihood is:
 
 $$
 f(r_1,\dots,r_n \mid \theta, \Sigma)
@@ -159,7 +172,7 @@ f(r_1,\dots,r_n \mid \theta, \Sigma)
 \right\}.
 $$
 
-Ignoring terms independent of $\theta$:
+Rearranging terms and **ignoring those independent of $\theta$**, we obtain:
 
 $$
 \theta \mid R, \Sigma
@@ -173,22 +186,32 @@ $$
 
 where $\bar r$ is the sample mean.
 
+> **Interpretation:**  
+> Classical Bayesian updating shrinks the unknown expected return toward the sample mean, with uncertainty decreasing as more data are observed.
+
+This result will serve as a reference point for understanding Black–Litterman.
+
 ---
 
 ## The Black–Litterman Model
-Now we can focus on implementing the Black-Litterman Model.
+
+We now shift focus from classical Bayesian estimation to the Black–Litterman framework.
 
 ### 1. Return-Generating Process
+
+Assume asset returns satisfy:
 
 $$
 r_t \mid \mu, \Sigma \sim \mathcal{N}(\mu, \Sigma).
 $$
 
-This identifies:
+This is the same statistical model as before, with a change in notation:
 
 $$
 \theta \;\leftrightarrow\; \mu.
 $$
+
+The key difference lies in **how we update beliefs about $\mu$**.
 
 ---
 
@@ -206,13 +229,18 @@ $$
 \right).
 $$
 
-Black–Litterman replaces historical averages with **market equilibrium and investor views**.
+However, historical sample means are noisy and unstable, especially in high dimensions.
+
+Black–Litterman replaces raw historical data with:
+
+- **market equilibrium information**, and  
+- **investor views**, expressed probabilistically.
 
 ---
 
 ### 3. Prior: $\pi$ and $\tau\Sigma$
 
-#### Reverse Optimization
+The market-implied equilibrium returns are obtained via reverse optimization.
 
 Mean–variance optimization:
 
@@ -225,32 +253,31 @@ w^{\mathsf T}\mu
 \right).
 $$
 
-First-order condition:
+The first-order condition gives:
 
 $$
 \mu = \lambda \Sigma w.
 $$
 
-Setting $w = w_{\text{mkt}}$:
+Setting $w = w_{\text{mkt}}$ yields:
 
 $$
 \pi = \lambda \Sigma w_{\text{mkt}}.
 $$
 
-Thus:
+The equilibrium returns $\pi$ serve as the **prior mean**, with uncertainty modeled as:
 
 $$
 \mu \sim \mathcal{N}(\pi, \tau\Sigma).
 $$
 
-
-Intuitively, $\tau$ reflects how confident we are in the equilibrium returns $\pi$.  
-A smaller value of $\tau$ implies stronger confidence in the market equilibrium, while a larger value reflects greater uncertainty.
- 
+The scalar $\tau$ reflects confidence in the equilibrium prior: smaller values imply stronger confidence, larger values allow views to play a greater role.
 
 ---
 
 ### 4. Likelihood: Investor Views
+
+Instead of observing returns directly, Black–Litterman introduces **views as noisy observations**:
 
 $$
 Q = P\mu + \varepsilon,
@@ -258,7 +285,7 @@ Q = P\mu + \varepsilon,
 \varepsilon \sim \mathcal{N}(0, \Omega).
 $$
 
-Replacing:
+This replaces:
 
 $$
 \bar r \mid \mu \sim \mathcal{N}\!\left(\mu, \frac{1}{T}\Sigma\right)
@@ -270,9 +297,17 @@ $$
 Q \mid \mu \sim \mathcal{N}(P\mu, \Omega).
 $$
 
+Where:
+
+- $P \in \mathbb{R}^{k \times n}$ is the **view matrix**,  
+- $Q \in \mathbb{R}^{k}$ is the **view-implied expected return vector**,  
+- $\Omega \in \mathbb{R}^{k \times k}$ captures **view uncertainty**.
+
 ---
 
 ### 5. Posterior Distribution
+
+Combining the Gaussian prior and likelihood yields:
 
 $$
 \mu \mid Q
@@ -280,7 +315,7 @@ $$
 \mathcal{N}(\mu_{\text{BL}}, \Sigma_{\text{BL}}),
 $$
 
-with:
+with posterior mean:
 
 $$
 \mu_{\text{BL}}
@@ -298,30 +333,26 @@ $$
 
 ## Summary
 
-Black–Litterman replaces historical sample means with economically meaningful **soft observations**.
+Black–Litterman replaces unstable historical averages with economically meaningful **soft observations**, while preserving the full Bayesian structure.
 
-- \( \pi \): market equilibrium  
-- \( P, Q \): investor views  
-- \( \tau\Sigma, \Omega \): confidence levels  
+Mathematically, it is nothing more than **Gaussian Bayesian updating**, applied to market equilibrium returns and investor views.
 
-Mathematically, it is simply **Bayesian updating under a Gaussian model**.
-The Black–Litterman model can be fully understood as a direct application of Bayesian updating and Gaussian conditioning, and the references above provide both the theoretical foundation and practical insight needed to move from equations to implementation.
 ---
 
 ## References and Further Reading
 
 1. **Ren-Raw Chen, Shih-Kuo Yeh, Xiaohu Zhang**  
-   *On the Black–Litterman Model: Learning to Do Better*
-    [JFDS: On the Black–Litterman Model (PDF)](https://faculty.fordham.edu/rchen/JFDS-Chen.pdf)
-    
+   *On the Black–Litterman Model: Learning to Do Better*  
+   [JFDS PDF](https://faculty.fordham.edu/rchen/JFDS-Chen.pdf)
+
 2. **Stephen Satchell**  
    *A Demystification of the Black–Litterman Model*  
    *Journal of Asset Management*, 2000
 
 3. **Brian Junker**  
    *Basics of Bayesian Statistics*  
-   [Basics of Bayesian Statistics (CMU lecture notes)](https://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf)
+   [CMU Lecture Notes](https://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf)
 
 4. **Sayan Mukherjee**  
    *Useful Properties of the Multivariate Normal*  
-   [Useful Properties of the Multivariate Normal (PDF)](https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf)
+   [Duke STA 613 Notes](https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf)
