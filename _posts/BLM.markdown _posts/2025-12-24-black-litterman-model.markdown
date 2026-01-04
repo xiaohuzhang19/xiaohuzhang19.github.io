@@ -6,7 +6,7 @@ image: /assets/images/black.jpeg
 headerImage: true
 tags:
   - research
-  - working-paper
+  - published-paper
 star: true
 category: blog
 author: Xiaohu Zhang
