@@ -1,5 +1,5 @@
 ---
-title: "Black–Litterman Model 101"
+title: "Black–Litterman Model: A Demystification"
 layout: post
 date: 2025-12-24 22:44
 image: /assets/images/black.jpeg
@@ -210,7 +210,7 @@ Black–Litterman replaces historical averages with **market equilibrium and inv
 
 ---
 
-### 3. Prior: \( \pi \) and \( \tau\Sigma \)
+### 3. Prior: $\( \pi \)$ and $\( \tau\Sigma \)$
 
 #### Reverse Optimization
 
