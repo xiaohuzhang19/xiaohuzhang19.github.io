@@ -307,7 +307,7 @@ The Black–Litterman model can be fully understood as a direct application of B
 
 1. **Ren-Raw Chen, Shih-Kuo Yeh, Xiaohu Zhang**  
    *On the Black–Litterman Model: Learning to Do Better*
-    https://faculty.fordham.edu/rchen/JFDS-Chen.pdf
+    [JFDS: On the Black–Litterman Model (PDF)](https://faculty.fordham.edu/rchen/JFDS-Chen.pdf)
     
 2. **Stephen Satchell**  
    *A Demystification of the Black–Litterman Model*  
@@ -315,8 +315,8 @@ The Black–Litterman model can be fully understood as a direct application of B
 
 3. **Brian Junker**  
    *Basics of Bayesian Statistics*  
-   https://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf
+   [Basics of Bayesian Statistics (CMU lecture notes)](https://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf)
 
 4. **Sayan Mukherjee**  
    *Useful Properties of the Multivariate Normal*  
-   https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf
+   [Useful Properties of the Multivariate Normal (PDF)](https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf)
