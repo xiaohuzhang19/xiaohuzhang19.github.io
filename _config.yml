@@ -30,15 +30,15 @@ permalink: /:title/
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
-  shortname: github # enter this from your disqus account
-  categories: [blog, project] # only show disqus for posts that have these categories
+  shortname: "" # disabled to prevent Disqus (and its ads) from loading
+  categories: [] # empty -> no posts will include Disqus
 
 # if you don't have any of social below, comment the line
 #facebook: myfacebook
 #twitter: mytwitter
 #instagram: myinstagram
 linkedin: https://www.linkedin.com/in/xiaohu-zhang-354570103/
-github: https://xiaohuzhang19.github.io/
+github: https://github.com/xiaohuzhang19
 email: xiaohu.zhang19@gmail.com
 Google Scholar: https://scholar.google.com/citations?user=pReowzEAAAAJ&hl=en
 authors:
