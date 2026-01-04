@@ -39,9 +39,9 @@ $$
 p(A, B) = p(A \mid B)\, p(B) = p(B \mid A)\, p(A).
 $$
 
-Dividing both sides by \( p(A) \) yields Bayes’ theorem.
+Dividing both sides by $p(A)$ yields Bayes’ theorem.
 
-Here, \( p(B) \) is the **prior** (marginal) probability of event \( B \), while \( p(B \mid A) \) is the **posterior** probability after observing event \( A \).
+Here, $p(B)$ is the **prior** (marginal) probability of event $B$, while $p(B \mid A)$ is the **posterior** probability after observing event $A$.
 
 ---
 
@@ -59,10 +59,10 @@ $$
 
 Where:
 
-- \( f(\theta \mid \text{data}) \): posterior distribution  
-- \( f(\text{data} \mid \theta) \): sampling density (likelihood up to a constant)  
-- \( f(\theta) \): prior distribution  
-- \( f(\text{data}) \): marginal likelihood  
+- $f(\theta \mid \text{data})$: posterior distribution  
+- $f(\text{data} \mid \theta)$: sampling density (likelihood up to a constant)  
+- $f(\theta)$: prior distribution  
+- $f(\text{data})$: marginal likelihood  
 
 For a continuous parameter space:
 
@@ -74,7 +74,7 @@ $$
 
 This quantity—called the **marginal likelihood** or **evidence**—normalizes the posterior so it integrates to one.
 
-Since it does not depend on \( \theta \), Bayes’ rule is often written in proportional form:
+Since it does not depend on $\theta$, Bayes’ rule is often written in proportional form:
 
 $$
 f(\theta \mid \text{data}) \propto f(\text{data} \mid \theta)\, f(\theta).
@@ -86,10 +86,10 @@ $$
 
 ## Bayesian Formulation with Financial Interpretation
 
-To make the framework concrete, replace the abstract parameter \( \theta \) with financial quantities:
+To make the framework concrete, replace the abstract parameter $\theta$ with financial quantities:
 
-- \( \mu \): unknown expected return  
-- \( r \): observed asset returns  
+- $\mu$: unknown expected return  
+- $r$: observed asset returns  
 
 Bayes’ theorem becomes:
 
@@ -101,10 +101,10 @@ $$
 
 Where:
 
-- \( p(\mu \mid r) \): posterior expected returns  
-- \( p(r \mid \mu) \): likelihood  
-- \( p(\mu) \): prior  
-- \( p(r) \): marginal likelihood  
+ - $p(\mu \mid r)$: posterior expected returns  
+ - $p(r \mid \mu)$: likelihood  
+ - $p(\mu)$: prior  
+ - $p(r)$: marginal likelihood  
 
 With:
 
@@ -118,7 +118,7 @@ $$
 
 For portfolio analysis, the multivariate normal distribution is fundamental.
 
-Let \( x \in \mathbb{R}^p \):
+Let $x \in \mathbb{R}^p$:
 
 $$
 f(x)
@@ -129,10 +129,10 @@ f(x)
 \right),
 $$
 
-where:
+where: 
 
-- \( \mu \): mean vector  
-- \( \Sigma \): covariance matrix  
+- $\mu$: mean vector  
+- $\Sigma$: covariance matrix  
 
 ---
 
@@ -159,7 +159,7 @@ f(r_1,\dots,r_n \mid \theta, \Sigma)
 \right\}.
 $$
 
-Ignoring terms independent of \( \theta \):
+Ignoring terms independent of $\theta$:
 
 $$
 \theta \mid R, \Sigma
@@ -171,7 +171,7 @@ $$
 \right),
 $$
 
-where \( \bar r \) is the sample mean.
+where $\bar r$ is the sample mean.
 
 ---
 
@@ -210,7 +210,7 @@ Black–Litterman replaces historical averages with **market equilibrium and inv
 
 ---
 
-### 3. Prior: $\( \pi \)$ and $\( \tau\Sigma \)$
+### 3. Prior: $\pi$ and $\tau\Sigma$
 
 #### Reverse Optimization
 
@@ -231,7 +231,7 @@ $$
 \mu = \lambda \Sigma w.
 $$
 
-Setting \( w = w_{\text{mkt}} \):
+Setting $w = w_{\text{mkt}}$:
 
 $$
 \pi = \lambda \Sigma w_{\text{mkt}}.
@@ -242,6 +242,11 @@ Thus:
 $$
 \mu \sim \mathcal{N}(\pi, \tau\Sigma).
 $$
+
+
+Intuitively, $\tau$ reflects how confident we are in the equilibrium returns $\pi$.  
+A smaller value of $\tau$ implies stronger confidence in the market equilibrium, while a larger value reflects greater uncertainty.
+ 
 
 ---
 
