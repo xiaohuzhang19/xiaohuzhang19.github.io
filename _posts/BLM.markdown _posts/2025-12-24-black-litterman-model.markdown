@@ -4,9 +4,9 @@ layout: post
 date: 2025-12-24 22:44
 image: /assets/images/black.jpeg
 headerImage: true
-tag:
-- markdown
-- elements
+tags:
+- research
+- working-paper
 star: true
 category: blog
 author: Xiaohu Zhang
@@ -49,13 +49,13 @@ set up two side equally, and divided by $p(A)$, we will have equation (1)
 We may know some events or research tests i prior to the event B, which is the *posterior* information, 
 can be denoted as $p(B|Tests_i...)$ .
 
-###### Bring data into Bayesian theorem ######
+#### Bring data into Bayesian theorem ####
 
 Now, if we bring probability distributions  into the theorem. 
 
 *Bayesian statistics* views uncertainty about model parameters as something that can be explicitly quantified using probability distributions. A prior distribution represents initial beliefs about a parameter, which are then updated with observed data to produce a posterior distribution with reduced uncertainty. Under this framework, probability is interpreted as a measure of uncertainty rather than long-run frequency.
 
-we can rewrite the bayes theorem in terms of distribution:
+we can rewrite the Bayesian theorem in terms of distribution:
 $$
 f(\theta|data)=\frac{f(data|\theta)f(\theta)}{f(data)}
 $$
@@ -224,7 +224,7 @@ $$
 
 
 
-####Conditional Normal Form (Key Bayesian Result)
+#### Conditional Normal Form (Key Bayesian Result) ####
 
 Ignoring terms that do not depend on $\theta$, and rewritten in matrix form, the likelihood implies
 $$
@@ -303,7 +303,7 @@ where:
 - $w_{\text{mkt}}$ are market-cap weights,
 - $\lambda$ is the market risk-aversion coefficient.
 
-#####3.1 Start from the Mean–Variance Optimization Problem
+##### 3.1 Start from the Mean–Variance Optimization Problem
 
 An investor chooses portfolio weights $w \in \mathbb{R}^n$ to maximize expected utility:
 $$
