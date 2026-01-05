@@ -70,7 +70,7 @@ layout: page
 If you'd like to get in touch, please fill out one of the forms below:
 
 <ul class="service-list">
-  <li><strong>Networking / Research Collaboration:</strong> <a href="https://forms.gle/mxLCssJ5vFHKXcTa7" target="_blank" rel="noopener">Network Intake Form</a></li>
+  <li><strong>Networking / Research Collaboration:</strong> <a href="https://forms.gle/mxLCssJ5vFHKXcTa7" target="_blank" rel="noopener">Networking Intake Form</a></li>
   <li><strong>Data Science Quant Finance Mentorship:</strong> <a href="https://forms.gle/sFsTfPyo51xmRSx87" target="_blank" rel="noopener">Mentorship Intake Form</a></li>
 </ul>
 
