@@ -446,7 +446,7 @@ Mathematically, it is nothing more than **Gaussian Bayesian updating**, applied 
 
 
 
-##Appendix
+## Appendix
 
 ## Assumptions
 
