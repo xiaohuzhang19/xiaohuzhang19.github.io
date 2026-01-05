@@ -44,6 +44,6 @@ layout: page
     {% include author.html %}
 {% endif %}
 
-{% if site.disqus.categories contains page.category %}
+{% if site.disqus.shortname != "" and (site.disqus.categories == empty or site.disqus.categories contains page.category) %}
     {% include disqus.html %}
 {% endif %}

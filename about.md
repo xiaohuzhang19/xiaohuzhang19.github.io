@@ -29,12 +29,12 @@ layout: page
 	<li>PySpark, Polars, etc</li>
 </ul>
 
-<h2>Service Provided</h2>
+<!-- <h2>Service Provided</h2>
 
 <ul class="service-list">
   <li><strong>Mentoring and Peer Coaching:</strong> Providing mentorship to undergraduate students since 2023.</li>
   <li><strong>Academic Research Collaboration:</strong> If you share similar research interests, feel free to connect with me on LinkedIn or contact me via email.</li>
-</ul>
+</ul> -->
 
 <h2>Papers</h2>
 <ul>
@@ -60,7 +60,18 @@ layout: page
 
 <ul class="skill-list">
 	<li>Application of the PSO Algorithm in Derivative Pricing</li>
-  		<li>Black-Litterman with Bayesian Theory</li>
+  		<li>Black-Litterman Model with Machine Learning Technique and Bayesian Theory</li>
     	<li>Bank network analysis using Graph Neural Networks</li>
+      <li>Machine Learning model explainability </li>
 </ul>
+
+<h2>Connect Me</h2>
+
+If you'd like to get in touch, please fill out one of the forms below:
+
+<ul class="service-list">
+  <li><strong>Networking / Research Collaboration:</strong> <a href="https://forms.gle/mxLCssJ5vFHKXcTa7" target="_blank" rel="noopener">Network Intake Form</a></li>
+  <li><strong>Data Science Quant Finance Mentorship:</strong> <a href="https://forms.gle/sFsTfPyo51xmRSx87" target="_blank" rel="noopener">Mentorship Intake Form</a></li>
+</ul>
+
 

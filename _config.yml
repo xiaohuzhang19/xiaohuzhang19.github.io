@@ -30,8 +30,8 @@ permalink: /:title/
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
-  shortname: "" # disabled to prevent Disqus (and its ads) from loading
-  categories: [] # empty -> no posts will include Disqus
+  shortname: "your-disqus-shortname" # set to your Disqus shortname to enable comments (leave empty "" to disable)
+  categories: [] # empty -> enable for all posts; or set to ["blog"] to enable only for that category
 
 # if you don't have any of social below, comment the line
 #facebook: myfacebook
