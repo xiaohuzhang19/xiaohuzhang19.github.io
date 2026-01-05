@@ -354,7 +354,7 @@ For example, suppose we have $N = 4$ assets:
    $$
    	au \approx 0.05.
    $$
-As the amount of data increases, estimation uncertainty decreases, and the implied value of $\tau$ becomes smaller.
+   As the amount of data increases, estimation uncertainty decreases, and the implied value of $\tau$ becomes smaller.
 
 ---
 
@@ -401,16 +401,15 @@ $$
 with posterior mean:
 
 $$
-\mu_{\text{BL}}
+\boxed{
+\mathbb E[R]
 =
-\pi
-+
-\tau\Sigma P^{\mathsf T}
-\left(
-P\tau\Sigma P^{\mathsf T} + \Omega
-\right)^{-1}
-(Q - P\pi).
+\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
+\left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
+}
 $$
+
+The derivation in details will be discussed in **Appendix**
 
 ---
 
@@ -444,3 +443,169 @@ Mathematically, it is nothing more than **Gaussian Bayesian updating**, applied 
 5. **Uncertainty in the Black–Litterman Model: A Practical Note**  
    *Weidener Diskussionspapiere*, No. 68.  
     [BLM Workpaper](https://www.econstor.eu/bitstream/10419/202070/1/1671418840.pdf)
+
+
+
+##Appendix
+
+## Assumptions
+
+**Prior on expected returns**
+$$
+\mu \sim \mathcal N(\pi,\ \tau\Sigma).
+$$
+
+**Views (likelihood)**
+$$
+Q \mid \mu \sim \mathcal N(P\mu,\ \Omega),
+\quad Q = P\mu + \varepsilon,\ \varepsilon \sim \mathcal N(0,\ \Omega).
+$$
+
+Because both prior and likelihood are Gaussian and linear, the posterior
+\(\mu \mid Q\) is Gaussian.
+
+---
+
+## Step 1: Write prior and likelihood
+
+Prior:
+$$
+p(\mu) \propto
+\exp\!\left(
+-\tfrac12(\mu-\pi)^\top(\tau\Sigma)^{-1}(\mu-\pi)
+\right).
+$$
+
+Likelihood:
+$$
+p(Q\mid\mu) \propto
+\exp\!\left(
+-\tfrac12(Q-P\mu)^\top\Omega^{-1}(Q-P\mu)
+\right).
+$$
+
+Bayes’ rule:
+$$
+p(\mu\mid Q) \propto p(Q\mid\mu)\,p(\mu).
+$$
+
+---
+
+## Step 2: Expand both quadratic forms
+
+### Prior term
+
+$$
+\begin{aligned}
+(\mu-\pi)^\top(\tau\Sigma)^{-1}(\mu-\pi)
+&=
+\mu^\top(\tau\Sigma)^{-1}\mu
+-2\mu^\top(\tau\Sigma)^{-1}\pi
++\pi^\top(\tau\Sigma)^{-1}\pi.
+\end{aligned}
+$$
+
+### Likelihood term
+
+$$
+\begin{aligned}
+(Q-P\mu)^\top\Omega^{-1}(Q-P\mu)
+&=
+Q^\top\Omega^{-1}Q
+-2\mu^\top P^\top\Omega^{-1}Q
++\mu^\top P^\top\Omega^{-1}P\,\mu.
+\end{aligned}
+$$
+
+Ignoring constants independent of \(\mu\), the log-posterior is
+
+$$
+\log p(\mu\mid Q)
+=
+\text{const}
+-
+\tfrac12\Big[
+\mu^\top\big((\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\big)\mu
+-2\mu^\top\big((\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\big)
+\Big].
+$$
+
+---
+
+## Step 3: Complete the square
+
+Let
+$$
+b = (\tau\Sigma)^{-1}\pi + P^\top\Omega^{-1}Q.
+$$
+
+Using the identity (for symmetric positive definite matrices):
+$$
+\mu^\top M\mu - 2\mu^\top b
+=
+(\mu-M^{-1}b)^\top M(\mu-M^{-1}b)
+- b^\top M^{-1}b,
+$$
+
+with
+$$
+M = (\tau\Sigma)^{-1}+P^\top\Omega^{-1}P,
+$$
+
+the posterior density becomes
+
+$$
+p(\mu\mid Q)
+\propto
+\exp\!\left(
+-\tfrac12
+(\mu - M^{-1}b)^\top
+M
+(\mu - M^{-1}b)
+\right).
+$$
+
+This is the kernel of a multivariate normal distribution.
+
+---
+
+## Posterior Mean
+
+$$
+\boxed{
+\mathbb E[R]
+=M^{-1}b=
+\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
+\left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
+}
+$$
+
+
+
+---
+
+## Posterior Predictive Return Covariance
+
+Assuming
+$$
+r\mid \mu \sim \mathcal N(\mu,\Sigma),
+$$
+
+the law of total variance 
+$$
+Var(r∣Q)=E[Var(r∣\mu,Q)∣Q]+Var(E[r∣\mu,Q]∣Q)\\
+Var(r∣\mu,Q)=\Sigma\\
+E(r|\mu,Q)=E(R)
+$$
+gives
+$$
+\boxed{
+\mathrm{Var}[R]
+=
+\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
++ \Sigma
+}
+$$
+
+---
+
