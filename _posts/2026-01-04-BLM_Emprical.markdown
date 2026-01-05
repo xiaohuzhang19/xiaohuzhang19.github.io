@@ -10,7 +10,7 @@ hidden: false
 
 
 
-###Absolute versus relative view:
+### Absolute versus relative view:
 
 A core modeling choice in the **Black–Litterman (BL)** framework is whether investor views are expressed in **absolute** or **relative** terms. This choice directly affects the structure of the **view matrix** $\mathbf{P}$, the **view vector** $\mathbf{Q}$, and ultimately the posterior expected returns.
 
@@ -65,7 +65,7 @@ $$
 
 ------
 
-### 
+###  Relative View
 
 A **relative view** expresses a belief about **performance differences** between assets:
 
