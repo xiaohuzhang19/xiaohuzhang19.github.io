@@ -30,7 +30,7 @@ permalink: /:title/
 
 # if you don't want comments in your posts, leave categories empty
 disqus:
-  shortname: "your-disqus-shortname" # set to your Disqus shortname to enable comments (leave empty "" to disable)
+  shortname: "xiaohuzhang19" # your Disqus shortname (from https://xiaohuzhang19.disqus.com/)
   categories: [] # empty -> enable for all posts; or set to ["blog"] to enable only for that category
 
 # if you don't have any of social below, comment the line
