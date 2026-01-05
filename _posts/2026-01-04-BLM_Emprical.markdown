@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Black Litterman Remarks"
-date: 2026-01-04 09:00:00
+date: 2026-01-03 09:00:00
 tags: [research]
 category: blog
 hidden: false
