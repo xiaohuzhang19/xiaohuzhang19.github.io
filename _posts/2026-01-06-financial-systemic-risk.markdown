@@ -172,7 +172,7 @@ These tools align with U.S. priorities in **financial surveillance, stress testi
 
 ---
 
-## Research Impact Summary (NIW Alignment)
+## Research Impact Summary 
 
 This research:
 
