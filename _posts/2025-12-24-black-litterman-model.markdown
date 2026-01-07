@@ -517,16 +517,16 @@ Q^\top\Omega^{-1}Q
 \end{aligned}
 $$
 
-Ignoring constants independent of \(\mu\), the log-posterior is
+Ignoring constants independent of $\mu$, the log-posterior is
 
 $$
 \log p(\mu\mid Q)
 =
-\text{const}
+	ext{const}
 -
-\tfrac12\Big[
-\mu^\top\big((\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\big)\mu
--2\mu^\top\big((\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\big)
+	frac12\Big[
+\mu^{\mathsf T}\big((\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\big)\mu
+-2\mu^{\mathsf T}\big((\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\big)
 \Big].
 $$
 
@@ -536,20 +536,20 @@ $$
 
 Let
 $$
-   b = (\tau\Sigma)^{-1}\pi + P^\top\Omega^{-1}Q.
+   b = (\tau\Sigma)^{-1}\pi + P^{\mathsf T}\Omega^{-1}Q.
 $$
 
 Using the identity (for symmetric positive definite matrices):
 $$
-   \mu^\top M\mu - 2\mu^\top b
+   \mu^{\mathsf T} M\mu - 2\mu^{\mathsf T} b
    =
-   (\mu-M^{-1}b)^\top M(\mu-M^{-1}b)
-   - b^\top M^{-1}b,
+   (\mu-M^{-1}b)^{\mathsf T} M(\mu-M^{-1}b)
+   - b^{\mathsf T} M^{-1}b,
 $$
 
 with
 $$
-   M = (\tau\Sigma)^{-1}+P^\top\Omega^{-1}P,
+   M = (\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P,
 $$
 
 the posterior density becomes
@@ -559,7 +559,7 @@ $$
    \propto
    \exp\!\left(
    -\tfrac12
-   (\mu - M^{-1}b)^\top
+   (\mu - M^{-1}b)^{\mathsf T}
    M
    (\mu - M^{-1}b)
    \right).
@@ -573,10 +573,14 @@ This is the kernel of a multivariate normal distribution.
 
 $$
 \boxed{
+}
+$$
    \mathbb E[R]
    =M^{-1}b=
-   \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
-   \left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
+   \left[(\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\right]^{-1}
+   \left[(\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\right]
+}
+$$
 }
 $$
 
