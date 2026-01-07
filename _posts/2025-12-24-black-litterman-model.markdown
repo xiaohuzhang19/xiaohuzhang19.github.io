@@ -536,33 +536,33 @@ $$
 
 Let
 $$
-b = (\tau\Sigma)^{-1}\pi + P^\top\Omega^{-1}Q.
+   b = (\tau\Sigma)^{-1}\pi + P^\top\Omega^{-1}Q.
 $$
 
 Using the identity (for symmetric positive definite matrices):
 $$
-\mu^\top M\mu - 2\mu^\top b
-=
-(\mu-M^{-1}b)^\top M(\mu-M^{-1}b)
-- b^\top M^{-1}b,
+   \mu^\top M\mu - 2\mu^\top b
+   =
+   (\mu-M^{-1}b)^\top M(\mu-M^{-1}b)
+   - b^\top M^{-1}b,
 $$
 
 with
 $$
-M = (\tau\Sigma)^{-1}+P^\top\Omega^{-1}P,
+   M = (\tau\Sigma)^{-1}+P^\top\Omega^{-1}P,
 $$
 
 the posterior density becomes
 
 $$
-p(\mu\mid Q)
-\propto
-\exp\!\left(
--\tfrac12
-(\mu - M^{-1}b)^\top
-M
-(\mu - M^{-1}b)
-\right).
+   p(\mu\mid Q)
+   \propto
+   \exp\!\left(
+   -\tfrac12
+   (\mu - M^{-1}b)^\top
+   M
+   (\mu - M^{-1}b)
+   \right).
 $$
 
 This is the kernel of a multivariate normal distribution.
@@ -573,10 +573,10 @@ This is the kernel of a multivariate normal distribution.
 
 $$
 \boxed{
-\mathbb E[R]
-=M^{-1}b=
-\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
-\left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
+   \mathbb E[R]
+   =M^{-1}b=
+   \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
+   \left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
 }
 $$
 
@@ -588,22 +588,22 @@ $$
 
 Assuming
 $$
-r\mid \mu \sim \mathcal N(\mu,\Sigma),
+ r\mid \mu \sim \mathcal N(\mu,\Sigma),
 $$
 
 the law of total variance 
 $$
-Var(r∣Q)=E[Var(r∣\mu,Q)∣Q]+Var(E[r∣\mu,Q]∣Q)\\
-Var(r∣\mu,Q)=\Sigma\\
-E(r|\mu,Q)=E(R)
+   Var(r∣Q)=E[Var(r∣\mu,Q)∣Q]+Var(E[r∣\mu,Q]∣Q)\\
+   Var(r∣\mu,Q)=\Sigma\\
+   E(r|\mu,Q)=E(R)
 $$
 gives
 $$
 \boxed{
-\mathrm{Var}[R]
-=
-\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
-+ \Sigma
+   \mathrm{Var}[R]
+   =
+   \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
+   + \Sigma
 }
 $$
 
