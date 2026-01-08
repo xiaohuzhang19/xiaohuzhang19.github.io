@@ -348,11 +348,11 @@ For example, suppose we have $N = 4$ assets:
 
 - If $T = 36$ (three years of monthly data), then  
    $$
-   	au \approx 0.20.
+   \tau \approx 0.20.
    $$
 - If $T = 120$ (ten years of monthly data), then  
    $$
-   	au \approx 0.05.
+   \tau \approx 0.05.
    $$
    As the amount of data increases, estimation uncertainty decreases, and the implied value of $\tau$ becomes smaller.
 
@@ -522,9 +522,9 @@ Ignoring constants independent of $\mu$, the log-posterior is
 $$
 \log p(\mu\mid Q)
 =
-	ext{const}
+\text{const}
 -
-	frac12\Big[
+\frac{1}{2}\Big[
 \mu^{\mathsf T}\big((\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\big)\mu
 -2\mu^{\mathsf T}\big((\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\big)
 \Big].
@@ -541,10 +541,7 @@ $$
 
 Using the identity (for symmetric positive definite matrices):
 $$
-   \mu^{\mathsf T} M\mu - 2\mu^{\mathsf T} b
-   =
-   (\mu-M^{-1}b)^{\mathsf T} M(\mu-M^{-1}b)
-   - b^{\mathsf T} M^{-1}b,
+\mu^{\mathsf T} M\mu - 2\mu^{\mathsf T} b = (\mu-M^{-1}b)^{\mathsf T} M(\mu-M^{-1}b) - b^{\mathsf T} M^{-1}b,
 $$
 
 with
@@ -573,14 +570,10 @@ This is the kernel of a multivariate normal distribution.
 
 $$
 \boxed{
-}
-$$
    \mathbb E[R]
    =M^{-1}b=
    \left[(\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\right]^{-1}
    \left[(\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\right]
-}
-$$
 }
 $$
 
@@ -597,17 +590,14 @@ $$
 
 the law of total variance 
 $$
-   Var(r∣Q)=E[Var(r∣\mu,Q)∣Q]+Var(E[r∣\mu,Q]∣Q)\\
-   Var(r∣\mu,Q)=\Sigma\\
-   E(r|\mu,Q)=E(R)
+   \mathrm{Var}(r\mid Q)=E[\mathrm{Var}(r\mid \mu,Q)\mid Q]+\mathrm{Var}(E[r\mid \mu,Q]\mid Q)\\
+   \mathrm{Var}(r\mid \mu,Q)=\Sigma\\
+   E(r\mid \mu,Q)=E(R)
 $$
 gives
 $$
 \boxed{
-   \mathrm{Var}[R]
-   =
-   \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
-   + \Sigma
+\mathrm{Var}[R] = \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1} + \Sigma
 }
 $$
 

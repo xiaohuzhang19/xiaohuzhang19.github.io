@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-07T08:28:26-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Xiaohu Zhang</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Black Litterman Remarks</title><link href="http://localhost:4000/BLM_Emprical/" rel="alternate" type="text/html" title="Black Litterman Remarks" /><published>2026-01-03T04:00:00-05:00</published><updated>2026-01-03T04:00:00-05:00</updated><id>http://localhost:4000/BLM_Emprical</id><content type="html" xml:base="http://localhost:4000/BLM_Emprical/"><![CDATA[<h2 id="some-remarks-about-the-black-litterman-model-implementation">Some remarks about the black litterman model implementation</h2>
+
+<h3 id="absolute-versus-relative-view">Absolute versus relative view:</h3>
+
+<p>A core modeling choice in the <strong>Black–Litterman (BL)</strong> framework is whether investor views are expressed in <strong>absolute</strong> or <strong>relative</strong> terms. This choice directly affects the structure of the <strong>view matrix</strong> $\mathbf{P}$, the <strong>view vector</strong> $\mathbf{Q}$, and ultimately the posterior expected returns.</p>
+
+<p>An <strong>absolute view</strong> expresses a belief about the <strong>level of return</strong> of a single asset (or portfolio):</p>
+
+<p>Assume three assets:
+\(\boldsymbol{\mu} =
+\begin{bmatrix}
+\mu_1 \\ \mu_2 \\ \mu_3
+\end{bmatrix}\)
+<strong>View:</strong></p>
+
+<blockquote>
+  <p>Asset 1 will have an expected return of 6%.</p>
+</blockquote>
+
+\[\mathbf{P} =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0
+\end{bmatrix},
+\quad
+\mathbf{Q} =
+\begin{bmatrix}
+0.06
+\end{bmatrix}\]
+
+<p>This encodes:
+\(\mu_1 = 6\%\)</p>
+
+<h3 id="multiple-absolute-views">Multiple Absolute Views</h3>
+
+<blockquote>
+  <p>Asset 1 → 6%
+ Asset 3 → 4%</p>
+</blockquote>
+
+\[\mathbf{P} =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix},
+\quad
+\mathbf{Q} =
+\begin{bmatrix}
+0.06 \\
+0.04
+\end{bmatrix}\]
+
+<hr />
+
+<h3 id="relative-view">Relative View</h3>
+
+<p>A <strong>relative view</strong> expresses a belief about <strong>performance differences</strong> between assets:</p>
+
+<blockquote>
+  <p>“Asset $i$ will outperform asset $j$ by $q$.”</p>
+</blockquote>
+
+<hr />
+
+<h3 id="example-pairwise-relative-view">Example (Pairwise Relative View)</h3>
+
+<p><strong>View:</strong></p>
+
+<blockquote>
+  <p>Asset 1 will outperform Asset 2 by 2%.</p>
+</blockquote>
+
+\[\mathbf{P} =
+\begin{bmatrix}
+1 &amp; -1 &amp; 0
+\end{bmatrix},
+\quad
+\mathbf{Q} =
+\begin{bmatrix}
+0.02
+\end{bmatrix}\]
+
+<p>This encodes:
+\(\mu_1 - \mu_2 = 2\%\)</p>
+
+<hr />
+
+<h3 id="relative-view-vs-market-neutrality">Relative View vs Market Neutrality</h3>
+
+<p>Relative views <strong>do not pin down levels</strong>—only differences.
+ This makes them:</p>
+
+<ul>
+  <li>More <strong>robust</strong></li>
+  <li>Less sensitive to equilibrium assumptions</li>
+  <li>Popular with <strong>long–short</strong> and <strong>factor-based</strong> portfolios</li>
+</ul>
+
+<hr />
+
+<h3 id="multi-asset-relative-view-portfolio-view">Multi-Asset Relative View (Portfolio View)</h3>
+
+<blockquote>
+  <p>Technology (Assets 1 &amp; 2) will outperform Energy (Asset 3) by 3%.</p>
+</blockquote>
+
+\[\mathbf{P} =
+\begin{bmatrix}
+0.5 &amp; 0.5 &amp; -1
+\end{bmatrix},
+\quad
+\mathbf{Q} =
+\begin{bmatrix}
+0.03
+\end{bmatrix}\]
+
+<p>This implies:
+\(0.5 \mu_1 + 0.5 \mu_2 - \mu_3 = 3\%\)</p>
+
+<h3 id="mixed-absolute-and-relative-views">Mixed Absolute and Relative Views</h3>
+
+<p>In practice, <strong>most BL implementations mix both</strong>.
+\(\mathbf{P} =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1
+\end{bmatrix},
+\quad
+\mathbf{Q} =
+\begin{bmatrix}
+0.06 \\
+0.02
+\end{bmatrix}\)
+Meaning:</p>
+
+<ol>
+  <li>Asset 1 has 6% expected return</li>
+  <li>Asset 2 outperforms Asset 3 by 2%</li>
+</ol>]]></content><author><name></name></author><category term="blog" /><category term="research" /><summary type="html"><![CDATA[Some remarks about the black litterman model implementation]]></summary></entry><entry><title type="html">Financial Knowledge Graph for Systemic risk</title><link href="http://localhost:4000/financial-systemic-risk/" rel="alternate" type="text/html" title="Financial Knowledge Graph for Systemic risk" /><published>2026-01-03T04:00:00-05:00</published><updated>2026-01-03T04:00:00-05:00</updated><id>http://localhost:4000/financial-systemic-risk</id><content type="html" xml:base="http://localhost:4000/financial-systemic-risk/"><![CDATA[<h1 id="financial-knowledge-graphs-for-systemic-risk">Financial Knowledge Graphs for Systemic Risk</h1>
+<hr />
+
+<h2 id="research-motivation">Research Motivation</h2>
+
+<p>Modern financial crises are not driven by isolated firm failures, but by <strong>hidden interdependencies</strong> across institutions, markets, and information channels. Accurately identifying and monitoring these connections is directly aligned with U.S. national interests in <strong>financial stability, systemic-risk oversight, and macroprudential regulation</strong>.</p>
+
+<p>My research develops <strong>financial knowledge graphs</strong> that integrate market data, liquidity measures, and unstructured news using modern machine learning and natural language processing (NLP). This work potentially can contributes to regulatory risk monitoring frameworks relevant to the US and global regulatory agency.</p>
+
+<hr />
+
+<h2 id="technical-foundation-graph-theory-to-knowledge-graphs">Technical Foundation: Graph Theory to Knowledge Graphs</h2>
+
+<p>Graph theory originates from Leonhard Euler’s 1736 solution to the <em>Seven Bridges of Königsberg</em> problem, demonstrating that <strong>structure, not distance, determines feasibility</strong>. This insight directly maps to systemic risk: contagion arises from network topology rather than individual balance sheets.</p>
+
+<p>A <strong>graph</strong> consists of:</p>
+
+<ul>
+  <li><strong>Nodes (vertices):</strong> entities such as financial institutions</li>
+  <li><strong>Edges:</strong> relationships or dependencies</li>
+  <li><strong>Degree:</strong> number of connections per node</li>
+  <li><strong>Density:</strong> concentration of interconnections</li>
+  <li><strong>Labels:</strong> attributes such as sector, size, or risk classification</li>
+</ul>
+
+<p>A <strong>Knowledge Graph (KG)</strong> extends this framework by embedding <em>semantic meaning</em> into edges and labels, enabling interpretable and extensible risk analysis.</p>
+
+<p><img src="assets/images/sevenbridge.png" alt="Seven Bridge Problem" /></p>
+
+<hr />
+
+<h2 id="financial-knowledge-graph-construction">Financial Knowledge Graph Construction</h2>
+
+<h3 id="data-scope">Data Scope</h3>
+
+<ul>
+  <li>~200 U.S. and global financial institutions</li>
+  <li>Monthly observations from <strong>2006–2013</strong></li>
+  <li>Focus on <strong>Top 25 firms by market capitalization</strong></li>
+</ul>
+
+<h3 id="graph-design">Graph Design</h3>
+
+<ul>
+  <li><strong>Nodes:</strong> Systemically important financial institutions</li>
+  <li><strong>Edges:</strong> Partial correlations (conditional dependencies) of market-implied volatility</li>
+  <li><strong>Edge weights:</strong> Strength of dependency</li>
+  <li><strong>Node labels:</strong> KNN-based clustering using market capitalization</li>
+</ul>
+
+<p>This methodology is published in <em>Journal of Financial Stability</em>:</p>
+
+<blockquote>
+  <p><strong>From Liquidity Risk to Systemic Risk: A Use of Knowledge Graph</strong></p>
+</blockquote>
+
+<hr />
+
+<h2 id="systemic-risk-insights-during-the-global-financial-crisis">Systemic Risk Insights During the Global Financial Crisis</h2>
+
+<p>Visualizing the volatility-based KG during <strong>2007–2009</strong> reveals:</p>
+
+<ul>
+  <li>Sharp increases in <strong>network density</strong> during 2008</li>
+  <li>Central positioning of <strong>CME Group</strong> as a clearinghouse</li>
+  <li>Strong conditional dependencies between clearing and dealer banks (e.g., JPMorgan)</li>
+</ul>
+
+<p>These findings align with post-crisis regulatory emphasis on clearing, margining, and central counterparties (CCPs).</p>
+
+<hr />
+
+<h2 id="liquidity-based-knowledge-graphs-revealing-hidden-fragility">Liquidity-Based Knowledge Graphs: Revealing Hidden Fragility</h2>
+
+<p>Volatility alone often over-connects firms during crises. To address this, I introduce <strong>liquidity-discount-based KGs</strong>:</p>
+
+<ul>
+  <li>Liquidity discount measures price compression caused by funding stress</li>
+  <li>Liquidity-based graphs reveal structural dependencies invisible to volatility</li>
+  <li>Robust across crisis and non-crisis regimes</li>
+</ul>
+
+<p>Empirical evidence shows liquidity metrics provide <strong>earlier and more interpretable signals</strong> of systemic fragility (related work in <em>Journal of Fixed Income</em>, 2012).</p>
+
+<hr />
+
+<h2 id="integrating-nlp-news-driven-financial-knowledge-graphs">Integrating NLP: News-Driven Financial Knowledge Graphs</h2>
+
+<p>Market data captures realized stress, but <strong>news reflects expectations and sentiment</strong>.</p>
+
+<h3 id="data-and-methodology">Data and Methodology</h3>
+
+<ul>
+  <li>English-language financial news (LexisNexis)</li>
+  <li>Text normalization, stop-word removal, and stemming</li>
+  <li>Inclusion of distressed firms (Lehman Brothers, Bear Stearns, AIG)</li>
+</ul>
+
+<h3 id="two-nlp-based-graphs">Two NLP-Based Graphs</h3>
+
+<ol>
+  <li><strong>Frequency-based KG</strong>
+    <ul>
+      <li>Entity extraction via SpaCy</li>
+      <li>Edge weight = co-mention frequency</li>
+    </ul>
+  </li>
+  <li><strong>Embedding-based KG</strong>
+    <ul>
+      <li>OpenAI text embeddings (1536–3072 dimensions)</li>
+      <li>Semantic similarity mapped to graph edges</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="empirical-findings-from-news-based-networks">Empirical Findings from News-Based Networks</h2>
+
+<h3 id="pre-crisis-2007">Pre-Crisis (2007)</h3>
+
+<ul>
+  <li>Bankrupt firms (Lehman, Bear Stearns) show <strong>few connections</strong></li>
+  <li>Highly connected firms include Bank of America, Citi, Merrill Lynch</li>
+  <li>Vulnerability is <strong>not clearly identifiable ex ante</strong></li>
+</ul>
+
+<h3 id="crisis-period-2008">Crisis Period (2008)</h3>
+
+<ul>
+  <li>Network density increases sharply</li>
+  <li>Media-driven co-mentions explode</li>
+  <li>Graph complexity rises post-shock</li>
+</ul>
+
+<p><strong>Key insight:</strong> News-based networks react strongly <em>after</em> stress materializes.</p>
+
+<hr />
+
+<h2 id="embedding-geometry-and-crisis-convergence">Embedding Geometry and Crisis Convergence</h2>
+
+<p>Using t-SNE on annualized news embeddings:</p>
+
+<ul>
+  <li><strong>2007:</strong> Distressed firms cluster separately</li>
+  <li><strong>2008–2009:</strong> Clusters collapse; firms converge semantically</li>
+  <li>Major banks become indistinguishable from failed institutions</li>
+</ul>
+
+<p>This reflects systemic narrative convergence during crises.</p>
+
+<hr />
+
+<h2 id="predictive-graphs-from-machine-learning">Predictive Graphs from Machine Learning</h2>
+
+<p>I further construct graphs from supervised learning artifacts:</p>
+
+<ul>
+  <li>RNNs trained on embedded news predict firm labels</li>
+  <li>Confusion matrices serve as weighted adjacency matrices</li>
+  <li>Misclassification probabilities measure institutional similarity</li>
+</ul>
+
+<p>This approach bridges <strong>deep learning interpretability</strong> and network science.</p>
+
+<hr />
+
+<h2 id="can-knowledge-graphs-predict-systemic-crises">Can Knowledge Graphs Predict Systemic Crises?</h2>
+
+<p>Key questions evaluated:</p>
+
+<ul>
+  <li>Is the network denser during crisis periods?</li>
+  <li>Can Lehman or Bear Stearns be identified ex ante?</li>
+  <li>Can AIG’s distress be forecast?</li>
+</ul>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>While financial knowledge graphs <strong>explain crisis propagation</strong>, they do <strong>not reliably predict crisis onset</strong>. Systemic risk is a regime-shift phenomenon driven by macro shocks and policy responses.</p>
+
+<hr />
+
+<h2 id="broader-impact-and-policy-relevance">Broader Impact and Policy Relevance</h2>
+
+<p>Beyond crisis analysis, this framework supports:</p>
+
+<ul>
+  <li>Market sentiment monitoring</li>
+  <li>Bank network similarity analysis</li>
+  <li>Return direction classification using embeddings</li>
+</ul>
+
+<p>These tools align with U.S. priorities in <strong>financial surveillance, stress testing, and AI-driven risk management</strong>.</p>
+
+<hr />
+
+<h2 id="research-impact-summary">Research Impact Summary</h2>
+
+<p>This research:</p>
+
+<ul>
+  <li>Advances <strong>interpretable AI</strong> for financial stability</li>
+  <li>Integrates structured and unstructured data at scale</li>
+  <li>Supports regulatory objectives under Basel III and FRTB</li>
+  <li>Provides transferable tools for systemic-risk oversight</li>
+</ul>
+
+<p>By improving transparency and analytical depth in monitoring interconnected financial systems, this work serves the <strong>national interest of maintaining U.S. financial system resilience</strong>.</p>
+
+<hr />]]></content><author><name></name></author><category term="blog" /><category term="research" /><summary type="html"><![CDATA[Financial Knowledge Graphs for Systemic Risk]]></summary></entry><entry><title type="html">Black–Litterman Model: A Demystification</title><link href="http://localhost:4000/black-litterman-model/" rel="alternate" type="text/html" title="Black–Litterman Model: A Demystification" /><published>2025-12-24T22:44:00-05:00</published><updated>2025-12-24T22:44:00-05:00</updated><id>http://localhost:4000/black-litterman-model</id><content type="html" xml:base="http://localhost:4000/black-litterman-model/"><![CDATA[<h2 id="blacklitterman-model-a-demystification">Black–Litterman Model: A Demystification</h2>
+
+<p>Two years ago, inspired by recent advances in 401(k) and pension fund investment strategies, I began exploring a research problem originally introduced nearly two decades ago by Fischer Black and Robert Litterman at Goldman Sachs.</p>
+
+<p>Although the problem itself is well known, the mathematical intuition behind the Black–Litterman model—and, more importantly, how to apply it effectively in practice—is rarely explained in a clear and accessible way.</p>
+
+<p>In this post, I walk through the Black–Litterman model <strong>from first principles</strong>, carefully building the logic from Bayesian statistics and multivariate normal theory. The goal is to show that Black–Litterman is not a heuristic or ad-hoc adjustment, but a <strong>direct and natural application of Bayesian updating</strong>.</p>
+
+<hr />
+
+<h2 id="math-behind-the-model">Math Behind the Model</h2>
+
+<p>We begin by reviewing the Bayesian machinery that underpins the Black–Litterman framework.</p>
+
+<h3 id="1-a-brief-review-of-bayes-theorem">1. A Brief Review of Bayes’ Theorem</h3>
+
+<p>Bayes’ theorem states:</p>
+
+\[p(B \mid A) = \frac{p(A \mid B)\, p(B)}{p(A)}.\]
+
+<p>This follows directly from the definition of joint probability:</p>
+
+\[p(A, B) = p(A \mid B)\, p(B) = p(B \mid A)\, p(A).\]
+
+<p>Dividing both sides by $p(A)$ yields Bayes’ theorem.</p>
+
+<p>Here:</p>
+
+<ul>
+  <li>$p(B)$ is the <strong>prior</strong> (marginal) probability of event $B$,</li>
+  <li>$p(B \mid A)$ is the <strong>posterior</strong> probability after observing event $A$.</li>
+</ul>
+
+<p>This simple identity is the foundation of Bayesian inference.</p>
+
+<hr />
+
+<h3 id="2-bringing-data-into-bayes-theorem">2. Bringing Data into Bayes’ Theorem</h3>
+
+<p>In Bayesian statistics, uncertainty about model parameters is represented explicitly using probability distributions. A <strong>prior distribution</strong> encodes beliefs before observing data, and these beliefs are updated using observed data to form a <strong>posterior distribution</strong>.</p>
+
+<p>Bayes’ theorem in distributional form is:</p>
+
+\[f(\theta \mid \text{data})
+=
+\frac{f(\text{data} \mid \theta)\, f(\theta)}{f(\text{data})}.\]
+
+<p>Where:</p>
+
+<ul>
+  <li>$f(\theta \mid \text{data})$: posterior distribution</li>
+  <li>$f(\text{data} \mid \theta)$: sampling density (likelihood up to a constant)</li>
+  <li>$f(\theta)$: prior distribution</li>
+  <li>$f(\text{data})$: marginal likelihood</li>
+</ul>
+
+<p>For a continuous parameter space:</p>
+
+\[f(\text{data})
+=
+\int f(\text{data} \mid \theta)\, f(\theta)\, d\theta.\]
+
+<p>This quantity—called the <strong>marginal likelihood</strong> or <strong>evidence</strong>—ensures that the posterior integrates to one.</p>
+
+<p>Since it does not depend on $\theta$, Bayes’ rule is often written in proportional form:</p>
+
+\[f(\theta \mid \text{data}) \propto f(\text{data} \mid \theta)\, f(\theta).\]
+
+<blockquote>
+  <p><strong>Posterior ∝ Likelihood × Prior</strong></p>
+</blockquote>
+
+<p>This proportional form highlights the core intuition of Bayesian inference.</p>
+
+<hr />
+
+<h2 id="bayesian-formulation-with-financial-interpretation">Bayesian Formulation with Financial Interpretation</h2>
+
+<p>To connect Bayesian inference with portfolio theory, we now replace the abstract parameter $\theta$ with financially meaningful quantities:</p>
+
+<ul>
+  <li>$\mu$: unknown expected return</li>
+  <li>$r$: observed asset returns</li>
+</ul>
+
+<p>Bayes’ theorem becomes:</p>
+
+\[p(\mu \mid r)
+=
+\frac{p(r \mid \mu)\, p(\mu)}{p(r)}.\]
+
+<p>Where:</p>
+
+<ul>
+  <li>$p(\mu \mid r)$: posterior expected returns</li>
+  <li>$p(r \mid \mu)$: likelihood</li>
+  <li>$p(\mu)$: prior</li>
+  <li>$p(r)$: marginal likelihood</li>
+</ul>
+
+<p>With:</p>
+
+\[p(r) = \int p(r \mid \mu)\, p(\mu)\, d\mu.\]
+
+<p>This formulation already hints at the structure that Black–Litterman will later exploit.</p>
+
+<hr />
+
+<h2 id="multivariate-normal-distribution">Multivariate Normal Distribution</h2>
+
+<p>For portfolio applications, the multivariate normal distribution plays a central role.</p>
+
+<p>Let $x \in \mathbb{R}^p$:</p>
+
+\[f(x)
+=
+\frac{1}{(2\pi)^{p/2} |\Sigma|^{1/2}}
+\exp\!\left(
+-\frac{1}{2}(x - \mu)^{\mathsf T}\Sigma^{-1}(x - \mu)
+\right),\]
+
+<p>where:</p>
+
+<ul>
+  <li>$\mu$ is the mean vector,</li>
+  <li>$\Sigma$ is the covariance matrix.</li>
+</ul>
+
+<p>This distribution underlies both classical mean estimation and the Black–Litterman model.</p>
+
+<hr />
+
+<h2 id="multivariate-normal-likelihood-with-bayesian-updating">Multivariate Normal Likelihood with Bayesian Updating</h2>
+
+<p>Assume we observe historical returns:</p>
+
+\[r_1, \dots, r_n \in \mathbb{R}^p,
+\qquad
+r_i \mid \theta, \Sigma \sim \mathcal{N}(\theta, \Sigma).\]
+
+<p>The joint likelihood is:</p>
+
+\[f(r_1,\dots,r_n \mid \theta, \Sigma)
+=
+(2\pi)^{-np/2} |\Sigma|^{-n/2}
+\exp\!\left\{
+-\frac{1}{2}
+\sum_{i=1}^n
+(r_i - \theta)^{\mathsf T}\Sigma^{-1}(r_i - \theta)
+\right\}.\]
+
+<p>Rearranging terms and <strong>ignoring those independent of $\theta$</strong>, we obtain:</p>
+
+\[\theta \mid R, \Sigma
+\sim
+\mathcal{N}
+\!\left(
+\bar r,
+\frac{1}{n}\Sigma
+\right),\]
+
+<p>where $\bar r$ is the sample mean.</p>
+
+<p>This result will serve as a reference point for understanding Black–Litterman.</p>
+
+<hr />
+
+<h2 id="the-blacklitterman-model">The Black–Litterman Model</h2>
+
+<p>We now shift focus from classical Bayesian estimation to the Black–Litterman framework.</p>
+
+<h3 id="1-return-generating-process">1. Return-Generating Process</h3>
+
+<p>Assume asset returns satisfy:</p>
+
+\[r_t \mid \mu, \Sigma \sim \mathcal{N}(\mu, \Sigma).\]
+
+<p>This is the same statistical model as before, with a change in notation:</p>
+
+\[\theta \;\leftrightarrow\; \mu.\]
+
+<p>The key difference lies in <strong>how we update beliefs about $\mu$</strong>.</p>
+
+<hr />
+
+<h3 id="2-why-not-use-sample-means">2. Why Not Use Sample Means?</h3>
+
+<p>Classical Bayesian updating yields:</p>
+
+\[\mu \mid \bar r
+\sim
+\mathcal{N}
+\!\left(
+\bar r,
+\frac{1}{T}\Sigma
+\right).\]
+
+<p>However, historical sample means are noisy and unstable, especially in high dimensions.</p>
+
+<p>Black–Litterman replaces raw historical data with:</p>
+
+<ul>
+  <li><strong>market equilibrium information</strong>, and</li>
+  <li><strong>investor views</strong>, expressed probabilistically.</li>
+</ul>
+
+<hr />
+
+<h3 id="3-prior-pi-and-tausigma">3. Prior: $\pi$ and $\tau\Sigma$</h3>
+
+<p>The market-implied equilibrium returns are obtained via reverse optimization.</p>
+
+<p>Mean–variance optimization:</p>
+
+\[\max_w
+\left(
+w^{\mathsf T}\mu
+-
+\frac{\lambda}{2} w^{\mathsf T}\Sigma w
+\right).\]
+
+<p>The first-order condition gives:</p>
+
+\[\mu = \lambda \Sigma w.\]
+
+<p>Setting $w = w_{\text{mkt}}$ yields:</p>
+
+\[\pi = \lambda \Sigma w_{\text{mkt}}.\]
+
+<p>The equilibrium returns $\pi$ serve as the <strong>prior mean</strong>, with uncertainty modeled as:</p>
+
+\[\mu \sim \mathcal{N}(\pi, \tau\Sigma).\]
+
+<p>The scalar $\tau$ reflects confidence in the equilibrium prior: smaller values imply stronger confidence, larger values allow views to play a greater role. However,such parameter is difficult to set in practice.</p>
+
+<h2 id="an-alternative-interpretation-diffuse-priors-and-the-role-of-tau">An Alternative Interpretation: Diffuse Priors and the Role of $\tau$</h2>
+
+<p>An alternative way to interpret the Black–Litterman model is to compare it with the use of <strong>diffuse (uninformative) priors</strong> in Bayesian statistics. Diffuse priors are a well-established tool for incorporating <strong>estimation risk</strong> into portfolio allocation problems (see, for example, Rachev et al., 2008).</p>
+
+<hr />
+
+<h3 id="jeffreys-prior-in-bayesian-mean-estimation">Jeffreys Prior in Bayesian Mean Estimation</h3>
+
+<p>Using <strong>Jeffreys prior</strong> (Jeffreys, 1961) for the mean–variance model of asset returns, it can be shown that the posterior distribution of expected returns has the following form:</p>
+
+\[\mu \mid R
+\sim
+\mathcal{N}
+\!\left(
+\bar r,
+\left(1 + \frac{1}{T}\right)\frac{1}{T-1}\Sigma
+\right),
+\tag{A.1}\]
+
+<p>where:</p>
+
+<ul>
+  <li>$\bar r$ is the sample mean of returns,</li>
+  <li>$\Sigma$ is the return covariance matrix,</li>
+  <li>$T$ is the number of observations.</li>
+</ul>
+
+<p>Compared with the classical Bayesian result $\Sigma / T$, Jeffreys prior <strong>inflates the posterior variance</strong>, explicitly accounting for estimation uncertainty in the mean.</p>
+
+<hr />
+
+<h3 id="connection-to-blacklitterman-without-views">Connection to Black–Litterman Without Views</h3>
+
+<p>Now consider the Black–Litterman model <strong>without subjective views</strong>. In this case, the posterior mean and covariance reduce to:</p>
+
+\[\mu_{\text{BL}} = \pi,
+\qquad
+\Sigma_{\text{BL}} = (1 + \tau)\Sigma,
+\tag{A.2}\]
+
+<p>where:</p>
+
+<ul>
+  <li>$\pi$ is the market-implied equilibrium return,</li>
+  <li>$\tau \Sigma$ is the prior covariance of expected returns.</li>
+</ul>
+
+<p>This shows that, in the absence of views, Black–Litterman does not attempt to “forecast” returns. Instead, it anchors expected returns at equilibrium while inflating uncertainty to reflect estimation risk—<strong>exactly the same role played by diffuse priors in Bayesian inference</strong>.</p>
+
+<hr />
+
+<h3 id="interpreting-tau-via-jeffreys-prior">Interpreting $\tau$ via Jeffreys Prior</h3>
+
+<p>By equating the posterior variance from Jeffreys prior with the Black–Litterman posterior variance, we obtain an explicit mapping between $\tau$ and the effective sample size $T$:</p>
+
+\[\tau
+=
+\left(1 + \frac{1}{T}\right)
+\frac{T - 1}{T}
+\frac{1}{N + 2},
+\tag{A.3}\]
+
+<p>where $N$ is the number of assets.</p>
+
+<p>This expression provides a <strong>data-driven interpretation of $\tau$</strong>:
+it behaves like an inverse effective sample size, scaled by the cross-sectional dimension of the problem.</p>
+
+<hr />
+
+<h3 id="numerical-illustration">Numerical Illustration</h3>
+
+<p>For example, suppose we have $N = 4$ assets:</p>
+
+<ul>
+  <li>If $T = 36$ (three years of monthly data), then<br />
+ \(\tau \approx 0.20.\)</li>
+  <li>If $T = 120$ (ten years of monthly data), then<br />
+ \(\tau \approx 0.05.\)
+ As the amount of data increases, estimation uncertainty decreases, and the implied value of $\tau$ becomes smaller.</li>
+</ul>
+
+<hr />
+
+<h3 id="4-likelihood-investor-views">4. Likelihood: Investor Views</h3>
+
+<p>Instead of observing returns directly, Black–Litterman introduces <strong>views as noisy observations</strong>:</p>
+
+\[Q = P\mu + \varepsilon,
+\qquad
+\varepsilon \sim \mathcal{N}(0, \Omega).\]
+
+<p>This replaces:</p>
+
+\[\bar r \mid \mu \sim \mathcal{N}\!\left(\mu, \frac{1}{T}\Sigma\right)\]
+
+<p>with:</p>
+
+\[Q \mid \mu \sim \mathcal{N}(P\mu, \Omega).\]
+
+<p>Where:</p>
+
+<ul>
+  <li>$P \in \mathbb{R}^{k \times n}$ is the <strong>view matrix</strong>,</li>
+  <li>$Q \in \mathbb{R}^{k}$ is the <strong>view-implied expected return vector</strong>,</li>
+  <li>$\Omega \in \mathbb{R}^{k \times k}$ captures <strong>view uncertainty</strong>.</li>
+</ul>
+
+<hr />
+
+<h3 id="5-posterior-distribution">5. Posterior Distribution</h3>
+
+<p>Combining the Gaussian prior and likelihood yields:</p>
+
+\[\mu \mid Q
+\sim
+\mathcal{N}(\mu_{\text{BL}}, \Sigma_{\text{BL}}),\]
+
+<p>with posterior mean:</p>
+
+\[\boxed{
+\mathbb E[R]
+=
+\left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1}
+\left[(\tau\Sigma)^{-1}\pi+P^\top\Omega^{-1}Q\right]
+}\]
+
+<p>The derivation in details will be discussed in <strong>Appendix</strong></p>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p>Black–Litterman replaces unstable historical averages with economically meaningful <strong>soft observations</strong>, while preserving the full Bayesian structure.</p>
+
+<p>Mathematically, it is nothing more than <strong>Gaussian Bayesian updating</strong>, applied to market equilibrium returns and investor views.</p>
+
+<hr />
+
+<h2 id="references-and-further-reading">References and Further Reading</h2>
+
+<ol>
+  <li>
+    <p><strong>Ren-Raw Chen, Shih-Kuo Yeh, Xiaohu Zhang</strong><br />
+<em>On the Black–Litterman Model: Learning to Do Better</em><br />
+<a href="https://faculty.fordham.edu/rchen/JFDS-Chen.pdf">JFDS PDF</a></p>
+  </li>
+  <li>
+    <p><strong>Stephen Satchell</strong><br />
+<em>A Demystification of the Black–Litterman Model</em><br />
+<em>Journal of Asset Management</em>, 2000</p>
+  </li>
+  <li>
+    <p><strong>Brian Junker</strong><br />
+<em>Basics of Bayesian Statistics</em><br />
+<a href="https://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf">CMU Lecture Notes</a></p>
+  </li>
+  <li>
+    <p><strong>Sayan Mukherjee</strong><br />
+<em>Useful Properties of the Multivariate Normal</em><br />
+<a href="https://www2.stat.duke.edu/~sayan/Sta613/2018/lec/Bayesreg.pdf">Duke STA 613 Notes</a></p>
+  </li>
+  <li>
+    <p><strong>Uncertainty in the Black–Litterman Model: A Practical Note</strong><br />
+<em>Weidener Diskussionspapiere</em>, No. 68.<br />
+ <a href="https://www.econstor.eu/bitstream/10419/202070/1/1671418840.pdf">BLM Workpaper</a></p>
+  </li>
+</ol>
+
+<h2 id="appendix">Appendix</h2>
+
+<h2 id="assumptions">Assumptions</h2>
+
+<p><strong>Prior on expected returns</strong>
+\(\mu \sim \mathcal N(\pi,\ \tau\Sigma).\)</p>
+
+<p><strong>Views (likelihood)</strong>
+\(Q \mid \mu \sim \mathcal N(P\mu,\ \Omega),
+\quad Q = P\mu + \varepsilon,\ \varepsilon \sim \mathcal N(0,\ \Omega).\)</p>
+
+<p>Because both prior and likelihood are Gaussian and linear, the posterior
+(\mu \mid Q) is Gaussian.</p>
+
+<hr />
+
+<h2 id="step-1-write-prior-and-likelihood">Step 1: Write prior and likelihood</h2>
+
+<p>Prior:
+\(p(\mu) \propto
+\exp\!\left(
+-\tfrac12(\mu-\pi)^\top(\tau\Sigma)^{-1}(\mu-\pi)
+\right).\)</p>
+
+<p>Likelihood:
+\(p(Q\mid\mu) \propto
+\exp\!\left(
+-\tfrac12(Q-P\mu)^\top\Omega^{-1}(Q-P\mu)
+\right).\)</p>
+
+<p>Bayes’ rule:
+\(p(\mu\mid Q) \propto p(Q\mid\mu)\,p(\mu).\)</p>
+
+<hr />
+
+<h2 id="step-2-expand-both-quadratic-forms">Step 2: Expand both quadratic forms</h2>
+
+<h3 id="prior-term">Prior term</h3>
+
+\[\begin{aligned}
+(\mu-\pi)^\top(\tau\Sigma)^{-1}(\mu-\pi)
+&amp;=
+\mu^\top(\tau\Sigma)^{-1}\mu
+-2\mu^\top(\tau\Sigma)^{-1}\pi
++\pi^\top(\tau\Sigma)^{-1}\pi.
+\end{aligned}\]
+
+<h3 id="likelihood-term">Likelihood term</h3>
+
+\[\begin{aligned}
+(Q-P\mu)^\top\Omega^{-1}(Q-P\mu)
+&amp;=
+Q^\top\Omega^{-1}Q
+-2\mu^\top P^\top\Omega^{-1}Q
++\mu^\top P^\top\Omega^{-1}P\,\mu.
+\end{aligned}\]
+
+<p>Ignoring constants independent of $\mu$, the log-posterior is</p>
+
+\[\log p(\mu\mid Q)
+=
+\text{const}
+-
+\frac{1}{2}\Big[
+\mu^{\mathsf T}\big((\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\big)\mu
+-2\mu^{\mathsf T}\big((\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\big)
+\Big].\]
+
+<hr />
+
+<h2 id="step-3-complete-the-square">Step 3: Complete the square</h2>
+
+<p>Let
+\(b = (\tau\Sigma)^{-1}\pi + P^{\mathsf T}\Omega^{-1}Q.\)</p>
+
+<p>Using the identity (for symmetric positive definite matrices):
+\(\mu^{\mathsf T} M\mu - 2\mu^{\mathsf T} b = (\mu-M^{-1}b)^{\mathsf T} M(\mu-M^{-1}b) - b^{\mathsf T} M^{-1}b,\)</p>
+
+<p>with
+\(M = (\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P,\)</p>
+
+<p>the posterior density becomes</p>
+
+\[p(\mu\mid Q)
+   \propto
+   \exp\!\left(
+   -\tfrac12
+   (\mu - M^{-1}b)^{\mathsf T}
+   M
+   (\mu - M^{-1}b)
+   \right).\]
+
+<p>This is the kernel of a multivariate normal distribution.</p>
+
+<hr />
+
+<h2 id="posterior-mean">Posterior Mean</h2>
+
+\[\boxed{
+   \mathbb E[R]
+   =M^{-1}b=
+   \left[(\tau\Sigma)^{-1}+P^{\mathsf T}\Omega^{-1}P\right]^{-1}
+   \left[(\tau\Sigma)^{-1}\pi+P^{\mathsf T}\Omega^{-1}Q\right]
+}\]
+
+<hr />
+
+<h2 id="posterior-predictive-return-covariance">Posterior Predictive Return Covariance</h2>
+
+<p>Assuming
+\(r\mid \mu \sim \mathcal N(\mu,\Sigma),\)</p>
+
+<p>the law of total variance 
+\(\mathrm{Var}(r\mid Q)=E[\mathrm{Var}(r\mid \mu,Q)\mid Q]+\mathrm{Var}(E[r\mid \mu,Q]\mid Q)\\
+   \mathrm{Var}(r\mid \mu,Q)=\Sigma\\
+   E(r\mid \mu,Q)=E(R)\)
+gives
+\(\boxed{
+\mathrm{Var}[R] = \left[(\tau\Sigma)^{-1}+P^\top\Omega^{-1}P\right]^{-1} + \Sigma
+}\)</p>
+
+<hr />]]></content><author><name>Xiaohu Zhang</name></author><category term="blog" /><category term="research" /><category term="published-paper" /><summary type="html"><![CDATA[Unwrapping the black box of the Black–Litterman model]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/black.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/black.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
