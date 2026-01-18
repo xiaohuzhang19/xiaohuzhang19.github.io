@@ -52,7 +52,7 @@ Outside the key-rate range, the most common convention is **flat extrapolation**
 ---
 
 ## 2) Python implementation
-
+## reference material https://github.com/lballabio/QuantLib/issues/1882
 Below is a clean, production-friendly implementation:
 
 - `triangular_shock()` propagates shocks from key rates to any target tenor grid.
