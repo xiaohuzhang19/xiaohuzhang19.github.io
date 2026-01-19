@@ -20,32 +20,32 @@ A common industry approach is the **Triangular Rule**:
 
 Let key-rate tenors be:
 
-\[
+$$
 T_1 < T_2 < \cdots < T_K
-\]
+$$
 
 and shocks at those tenors be:
 
-\[
+$$
 \Delta y_1, \Delta y_2, \ldots, \Delta y_K
-\]
+$$
 
-For a maturity \( t \in [T_i, T_{i+1}] \), triangular weights are:
+For a maturity $t \in [T_i, T_{i+1}]$, triangular weights are:
 
-\[
+$$
 w_i(t) = \frac{T_{i+1}-t}{T_{i+1}-T_i},\quad
 w_{i+1}(t) = \frac{t-T_i}{T_{i+1}-T_i}
-\]
+$$
 
 and the propagated shock is:
 
-\[
+$$
 \Delta y(t)=w_i(t)\Delta y_i + w_{i+1}(t)\Delta y_{i+1}.
-\]
+$$
 
 Outside the key-rate range, the most common convention is **flat extrapolation**:
-- for \( t < T_1 \): use \( \Delta y(t)=\Delta y_1 \)
-- for \( t > T_K \): use \( \Delta y(t)=\Delta y_K \)
+- for $t < T_1$: use $\Delta y(t)=\Delta y_1$
+- for $t > T_K$: use $\Delta y(t)=\Delta y_K$
 
 (You can change this if your risk system uses a different boundary rule.)
 
