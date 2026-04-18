@@ -1,7 +1,11 @@
 ---
+layout: post
 title: "Triangular Rule for Yield-Curve Shock Propagation (Python)"
-date: 2026-01-17
+date: 2026-01-17 09:00:00
 tags: [fixed-income, duration, risk, yield-curve, python]
+category: blog
+author: Xiaohu Zhang
+hidden: false
 ---
 
 # Triangular Rule for Yield-Curve Shock Propagation (Python)
