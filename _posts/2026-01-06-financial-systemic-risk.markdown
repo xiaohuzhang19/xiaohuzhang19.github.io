@@ -31,7 +31,7 @@ A **graph** consists of:
 
 A **Knowledge Graph (KG)** extends this framework by embedding *semantic meaning* into edges and labels, enabling interpretable and extensible risk analysis.
 
-![Seven Bridge Problem](assets/images/sevenbridge.png)
+![Seven Bridge Problem](/assets/images/sevenbridge.png)
 
 
 
